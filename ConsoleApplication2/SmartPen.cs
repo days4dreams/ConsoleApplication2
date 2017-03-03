@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication2
 {
-   public class SmartPen
+    public class SmartPen
     {
         public SmartPen()
         { }
@@ -15,10 +15,21 @@ namespace ConsoleApplication2
         public bool ConnectedToWifi { get; set; }
         public double SensitivityRating { get; set; }
 
+
+        public void Speak()
+        {
+            Console.WriteLine("Here is a summary of your Smart Pen order:");
+            Console.WriteLine("Your Smart Pen will be " + AgeInDays + " days old");
+            Console.WriteLine("It will have a sensitivity rating of " + SensitivityRating);
+            Console.WriteLine("It will wifi " + ConnectedToWifi); // must write if statement
+            Console.WriteLine("Your message will be: " + OutputSentence);
+
+        }
+
         public void SenseRate()
-        { 
-            int sensitive;
-       
+        {
+            int sensitive = 1;
+
             if (sensitive == 1)
             {
                 Console.WriteLine("1 is a very lightweight");
@@ -44,30 +55,8 @@ namespace ConsoleApplication2
                 Console.WriteLine("5 is a very heavy weight");
             }
         }
-
-
-        public void Speak()
-        {
-            Console.WriteLine("Here is a summary of your Smart Pen order:");
-            Console.WriteLine("Your Smart Pen will be " + AgeInDays + " days old" );
-            Console.WriteLine("It will have a sensitivity rating of " + SensitivityRating);
-            Console.WriteLine("It will wifi " + ConnectedToWifi); // must write if statement
-            Console.WriteLine("Your message will be: " + OutputSentence);
-
-        }
-
-        public void Listen()
-        {
-        }
-
-        public void TellJoke()
-        {
-        }
-
-        internal static void SenseRate()
-        {
-
-            throw new NotImplementedException();
-        }
     }
+
+
+
 }

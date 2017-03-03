@@ -21,10 +21,10 @@ namespace ConsoleApplication2
             Console.WriteLine("How many days old will the pen be?");
             string agePen = Console.ReadLine(); // Ask the user for the age of the pen
             // validate response? Number range
-            int age;
-            if (!int.TryParse(agePen, out age)) // process if input was an invalid number
+            int age = 1;
+            if (int.TryParse(agePen, out age)) // process if input was an invalid number
             {
-                while (age >= 1 && age <= 365) // age is set to 0 by default if no number is entered
+                while (age <= 365) // age is set to 0 by default if no number is entered
                 {
                     Console.WriteLine(agePen + " is an invalid number. Please choose between 1 and 365 days old"); // error message
                     int.TryParse(Console.ReadLine(), out age); // allows the user to input another value
@@ -48,13 +48,12 @@ namespace ConsoleApplication2
                     double.TryParse(Console.ReadLine(), out sensitive); // allows the user to input another value
                 }
 
-            } // this loop will repeat until age has set to 1 or above or 5 or below
+            } // loop repeat until rating set to 1 or above or 5 or below
 
 
             if (sensitiveArray.Contains(sensitive))
             {
                 Console.WriteLine("Good choice"); // accept message
-                SmartPen.SenseRate();
             }
 
             Console.WriteLine("Moving on, do you require your Smart Pen to connect to Wifi?");
@@ -64,21 +63,15 @@ namespace ConsoleApplication2
             bool wifi;
             if (bool.TryParse(wifiPen, out wifi))
             {
-                if (string.Equals(wifiPen, "Yes"))
+                if (wifiPen == "Yes")
                 {
-                    wifi = true;
-                    bool.TryParse(wifiPen, out wifi);
-                }
-                else if (string.Equals(wifiPen, "No"))
-                {
-                    wifi = false;
+                    wifi.Equals(true);
                 }
                 else
                 {
-                    return;
+                    wifi.Equals(false);
                 }
             }
-
 
             Console.WriteLine("Finally, we will instruct the Smart Pen write for you!");
             Console.WriteLine("Please type your desired message below, and be aware that Smart Pens have a limit of 140 characters");
